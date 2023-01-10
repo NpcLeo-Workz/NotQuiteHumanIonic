@@ -1,0 +1,7 @@
+{
+  "name": "notquitehuman",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
