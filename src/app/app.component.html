@@ -1,3 +1,26 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu content-id="nav-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Navigation</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding" [fullscreen]="true" scroll-y="false">
+      <ion-menu-toggle>
+        <ion-button routerLink="about">About</ion-button>
+      </ion-menu-toggle>
+    </ion-content>
+    <ion-footer class="ion-padding-bottom">
+    <ion-item lines="full" class="menu-item">
+      <ion-icon slot="start" name="moon"></ion-icon>
+      <ion-label>
+        Dark Mode
+      </ion-label>
+      <ion-toggle id="themetoggle" (ionChange)="onToggleDarkMode({event : $event})" slot="end"></ion-toggle>
+    </ion-item>
+  </ion-footer>
+  </ion-menu>
+  <div class="ion-page" id="nav-content">
+    <ion-router-outlet></ion-router-outlet>
+  </div>
 </ion-app>

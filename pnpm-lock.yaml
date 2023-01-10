@@ -21,6 +21,7 @@ specifiers:
   '@capacitor/core': 4.6.1
   '@capacitor/haptics': 4.1.0
   '@capacitor/keyboard': 4.1.0
+  '@capacitor/preferences': ^4.0.2
   '@capacitor/status-bar': 4.1.1
   '@ionic/angular': ^6.1.9
   '@ionic/angular-toolkit': ^6.0.0
@@ -58,6 +59,7 @@ dependencies:
   '@capacitor/core': 4.6.1
   '@capacitor/haptics': 4.1.0_@capacitor+core@4.6.1
   '@capacitor/keyboard': 4.1.0_@capacitor+core@4.6.1
+  '@capacitor/preferences': 4.0.2_@capacitor+core@4.6.1
   '@capacitor/status-bar': 4.1.1_@capacitor+core@4.6.1
   '@ionic/angular': 6.4.1_yg4j7z3w4ho6o42qnye36negey
   ionicons: 6.0.4
@@ -1827,6 +1829,14 @@ packages:
 
   /@capacitor/keyboard/4.1.0_@capacitor+core@4.6.1:
     resolution: {integrity: sha512-5fanmJLdkXLEaro0oezkmpC15tBGlsLW4cp1jQTMPwyX6NLlPUFHdWUhMERzxL2QXHmHvtoFMJ4m15Eymgefuw==}
+    peerDependencies:
+      '@capacitor/core': ^4.0.0
+    dependencies:
+      '@capacitor/core': 4.6.1
+    dev: false
+
+  /@capacitor/preferences/4.0.2_@capacitor+core@4.6.1:
+    resolution: {integrity: sha512-HgcRkMdVHSIV3TeQLZFmCaCeMWQ25wLyZZ7dA2f8Rw81Q1Nroxsi7HxTEGNqrWKSN9PNKBJD8vChr6eB2GNtZg==}
     peerDependencies:
       '@capacitor/core': ^4.0.0
     dependencies:
