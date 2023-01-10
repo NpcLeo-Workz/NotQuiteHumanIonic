@@ -1,9 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>races</ion-title>
+    <ion-title>
+      Races
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content [fullscreen]="true" >
+  <ion-list>
+    <ion-item *ngFor="let race of (races | async)">
+      <ion-label>{{race.name}}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

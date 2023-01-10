@@ -7,7 +7,11 @@
     </ion-header>
     <ion-content class="ion-padding" [fullscreen]="true" scroll-y="false">
       <ion-menu-toggle>
-        <ion-button routerLink="about">About</ion-button>
+        <ion-list>
+          <ion-item routerLink="/">Home</ion-item>
+          <ion-item routerLink="races">Races</ion-item>
+          <ion-item routerLink="about">About</ion-item>
+        </ion-list>
       </ion-menu-toggle>
     </ion-content>
     <ion-footer class="ion-padding-bottom">
