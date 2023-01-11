@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>trait</ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="traitdetails">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ traitdetails.name}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list lines="full">
+          <ion-item-divider>
+            <ion-label>
+              Description
+            </ion-label>
+          </ion-item-divider>
+          <ion-item>
+            {{traitdetails.desc}}
+          </ion-item>
+          <div *ngIf="traitdetails.races.length">
+            <ion-item-group>
+              <ion-item-divider>
+                <ion-label>
+                  Races
+                </ion-label>
+              </ion-item-divider>
+              <ion-item>
+                <ion-label *ngFor="let race of traitdetails.races">{{race.name}}</ion-label>
+              </ion-item>
+            </ion-item-group>
+          </div>
+          <div *ngIf="traitdetails.subraces.length">
+            <ion-item-group>
+              <ion-item-divider>
+                <ion-label>
+                  SubRaces
+                </ion-label>
+              </ion-item-divider>
+              <ion-item>
+                <ion-label *ngFor="let race of traitdetails.subraces">{{race.name}}</ion-label>
+              </ion-item>
+            </ion-item-group>
+          </div>
+          <div *ngIf="traitdetails.proficiencies.length">
+            <ion-item-group>
+              <ion-item-divider>
+                <ion-label>
+                  Proficiencies
+                </ion-label>
+              </ion-item-divider>
+              <ion-item *ngFor="let prof of traitdetails.proficiencies">
+                <ion-label >{{prof.name}}</ion-label>
+              </ion-item>
+            </ion-item-group>
+          </div>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

@@ -19,6 +19,26 @@ const routes: Routes = [
     path: 'races',
     loadChildren: () => import('./pages/races/races.module').then( m => m.RacesPageModule)
   },
+  {
+    path: 'races/:index',
+    loadChildren: () => import('./pages/races/race/race.module').then( m => m.RacePageModule)
+  },
+  {
+    path: 'languages',
+    loadChildren: () => import('./pages/languages/languages.module').then( m => m.LanguagesPageModule)
+  },
+  {
+    path: 'languages/:index',
+    loadChildren: () => import('./pages/languages/language/language.module').then( m => m.LanguagePageModule)
+  },
+  {
+    path: 'traits',
+    loadChildren: () => import('./pages/traits/traits.module').then( m => m.TraitsPageModule)
+  },
+  {
+    path: 'traits/:index',
+    loadChildren: () => import('./pages/traits/trait/trait.module').then( m => m.TraitPageModule)
+  }
 ];
 
 @NgModule({

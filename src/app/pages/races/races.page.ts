@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {DndAPIService} from "../../services/dndAPI.service";
-import {Language} from "../../types/language";
-import {Race} from "../../types/race";
 
 @Component({
   selector: 'app-races',
@@ -9,19 +7,14 @@ import {Race} from "../../types/race";
   styleUrls: ['./races.page.scss'],
 })
 export class RacesPage implements OnInit {
-  races = this.api.getRaces();
-
+  races : any;
+  searchactive = false;
   constructor(public api: DndAPIService) { }
 
   ngOnInit() {
-    this.loadRaces()
+  this.races = this.api.getRaces()
   }
-  loadRaces(){
-    console.log(this.api.getRaces())
-    //this.api.getRaces().subscribe((x: any)=>{
-      //console.log(x)
-      //this.races = [...x];
-    //})
+  SearchbarActive(){
+    this.searchactive = !this.searchactive
   }
-
 }

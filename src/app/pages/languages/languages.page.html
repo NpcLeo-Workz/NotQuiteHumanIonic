@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>languages</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+      <ion-item *ngFor="let lan of (languages | async)" [routerLink]="lan.index">
+        <ion-label>{{lan.name}} </ion-label>
+        <ion-label slot="end"><ion-icon name="star" class="base"></ion-icon></ion-label>
+      </ion-item>
+  </ion-list>
+</ion-content>

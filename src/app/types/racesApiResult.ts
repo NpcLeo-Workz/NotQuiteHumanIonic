@@ -1,4 +1,4 @@
 export interface RacesApiResult<T>{
-  count: number;
+  //count: number;
   results: T[];
 }
