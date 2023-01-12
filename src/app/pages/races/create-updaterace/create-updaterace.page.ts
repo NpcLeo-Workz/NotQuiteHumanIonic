@@ -11,7 +11,18 @@ import {RaceDetailsApiResult} from "../../../types/raceDetailsApiResult";
 })
 export class CreateUpdateracePage implements OnInit {
   index: string = '';
-
+  blankrace: RaceDetailsApiResult = {
+    id: this.raceService.getId(),
+    index: '',
+    name: '',
+    speed: 0,
+    ability_bonuses: [{ability_score: {index:'', url:''},bonus:0}],
+    size: '',
+    starting_proficiencies:[{name: '', url:''}],
+    languages: [{name: '', index: '', url:'', script:'', typical_speakers: [''], type: ''}],
+    language_desc: '',
+    traits: [{name:'', url: ''}]
+  }
   race: any;
   constructor(public activatedRoute: ActivatedRoute, public navControler: NavController,
               public raceService: RaceService, public alertController: AlertController) { }
@@ -22,7 +33,7 @@ export class CreateUpdateracePage implements OnInit {
   setData(){
     const index1 = this.activatedRoute.snapshot.paramMap.get('index')
     if(index1 === null){
-      //set blank race
+      this.race = this.blankrace
       return
     }
     this.index = String(index1)
@@ -41,10 +52,12 @@ export class CreateUpdateracePage implements OnInit {
       }
     }
   }
-  private createRace(){}
+  private createRace(){
+    this.race.index = this.race.name.toLowerCase()
+    this.raceService.CreateRace(this.race)
+    this.navControler.back()
+  }
   private updateRace(){
-    const test = this.raceService.getRaceDetails(this.race.name.toLowerCase())
-    console.log('ok')
     this.raceService.UpdateRace(this.race)
     this.navControler.back()
   }

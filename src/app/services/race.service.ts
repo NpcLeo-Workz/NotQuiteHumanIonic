@@ -5,6 +5,8 @@ import {Injectable} from "@angular/core";
   providedIn: 'root'
 })
 export class RaceService{
+  #id =0;
+  #raceList: RaceDetailsApiResult[] = []
   constructor() {
     this.#raceList.push({
       id: 0,
@@ -30,8 +32,15 @@ export class RaceService{
       language_desc: 'test',
       traits: [{name:'test', url: 'test'}]
     });
+    for(let race of this.#raceList){
+      if(this.#id<=race.id ){
+        this.#id = race.id + 1
+      }
+    }
   }
-  #raceList: RaceDetailsApiResult[] = []
+  getId(){
+    return this.#id;
+  }
   getAllRaces(): RaceDetailsApiResult[]{
     return this.#raceList;
   }
@@ -50,21 +59,8 @@ export class RaceService{
     }
     Object.assign(race, updatedrace)
   }
-  CreateRace(id:number, index: string, name: string, speed: number,
-             ability_bonuses: [{ability_score:{index: string, url: string },bonus: number}],
-             size: string, starting_proficiencies: [{name: string, url: string}], languages: Language[],
-             language_desc: string, traits: [{name: string, url: string}]){
-    this.#raceList.push({
-      id: id,
-      index: index,
-      name: name,
-      speed: speed,
-      ability_bonuses: ability_bonuses,
-      size: size,
-      starting_proficiencies: starting_proficiencies,
-      languages: languages,
-      language_desc: language_desc,
-      traits: traits
-    });
+  CreateRace(newrace: RaceDetailsApiResult){
+    this.#raceList.push(newrace);
+    this.#id++
   }
 }

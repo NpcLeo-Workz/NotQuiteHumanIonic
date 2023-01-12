@@ -29,6 +29,11 @@ const routes: Routes = [
       .then( m => m.CreateUpdateracePageModule)
   },
   {
+    path: 'create-updaterace',
+    loadChildren: () => import('./pages/races/create-updaterace/create-updaterace.module')
+      .then( m => m.CreateUpdateracePageModule)
+  },
+  {
     path: 'languages',
     loadChildren: () => import('./pages/languages/languages.module').then( m => m.LanguagesPageModule)
   },
