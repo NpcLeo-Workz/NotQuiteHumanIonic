@@ -11,7 +11,11 @@ const routes: Routes = [
   {
     path: 'language',
     loadChildren: () => import('./language/language.module').then( m => m.LanguagePageModule)
+  },  {
+    path: 'create-updatelanguage',
+    loadChildren: () => import('./create-updatelanguage/create-updatelanguage.module').then( m => m.CreateUpdatelanguagePageModule)
   }
+
 ];
 
 @NgModule({

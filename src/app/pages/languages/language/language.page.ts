@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {DndAPIService} from "../../../services/dndAPI.service";
+import {LanguageService} from "../../../services/language.service";
 @Component({
   selector: 'app-language',
   templateUrl: './language.page.html',
@@ -8,13 +9,23 @@ import {DndAPIService} from "../../../services/dndAPI.service";
 })
 export class LanguagePage implements OnInit {
   landetails: any;
-  constructor(private route: ActivatedRoute, private api:DndAPIService) { }
+  index: any;
+  constructor(private route: ActivatedRoute, private api:DndAPIService, private lanservice: LanguageService) { }
 
   ngOnInit() {
-    let index = this.route.snapshot.paramMap.get('index');
-    this.api.getLanguageDetails(index).subscribe(details=>{
-      this.landetails = details;
-    })
+    this.index = this.route.snapshot.paramMap.get('index');
+    console.log('oninit')
+    console.log((this.index))
+    if(this.lanservice.getLanguageDetails(this.index)){
+      this.landetails = this.lanservice.getLanguageDetails(this.index)
+    }else{
+      this.api.getLanguageDetails(this.index).subscribe(details=>{
+        this.landetails = details;
+      })
+    }
+  }
+  RemoveLan(){
+    this.lanservice.deleteLanguage(this.index)
   }
 
 }

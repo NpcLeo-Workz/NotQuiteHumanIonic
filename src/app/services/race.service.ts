@@ -8,6 +8,7 @@ export class RaceService{
   #id =0;
   #raceList: RaceDetailsApiResult[] = []
   constructor() {
+    //test races
     this.#raceList.push({
       id: 0,
       index: 'test',
@@ -45,6 +46,8 @@ export class RaceService{
     return this.#raceList;
   }
   getRaceDetails(index: string): RaceDetailsApiResult | undefined {
+    console.log(this.#raceList)
+    console.log(this.#raceList.find(i=>i.index ===index))
     return this.#raceList.find(i=>i.index ===index)
   }
 
@@ -62,5 +65,6 @@ export class RaceService{
   CreateRace(newrace: RaceDetailsApiResult){
     this.#raceList.push(newrace);
     this.#id++
+    console.log(this.#raceList)
   }
 }

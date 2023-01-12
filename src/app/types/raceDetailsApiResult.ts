@@ -8,7 +8,7 @@ export interface RaceDetailsApiResult{
   ability_bonuses: [{ability_score:{index: string, url: string },bonus: number}]
   size: string;
   starting_proficiencies: [{name: string, url: string}]
-  languages: Language[]
+  languages: [{index: string, name:string, type: string, url: string, script: string, typical_speakers: string[]}]
   language_desc: string
   traits: [{name: string, url: string}]
 }

@@ -42,6 +42,16 @@ const routes: Routes = [
     loadChildren: () => import('./pages/languages/language/language.module').then( m => m.LanguagePageModule)
   },
   {
+    path: 'languages/:index/create-updatelanguage',
+    loadChildren: () => import('./pages/languages/create-updatelanguage/create-updatelanguage.module')
+      .then( m => m.CreateUpdatelanguagePageModule)
+  },
+  {
+    path: 'create-updatelanguage',
+    loadChildren: () => import('./pages/languages/create-updatelanguage/create-updatelanguage.module')
+      .then( m => m.CreateUpdatelanguagePageModule)
+  },
+  {
     path: 'traits',
     loadChildren: () => import('./pages/traits/traits.module').then( m => m.TraitsPageModule)
   },
