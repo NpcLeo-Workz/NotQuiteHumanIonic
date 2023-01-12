@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Share } from '@capacitor/share';
 import {DndAPIService} from "../../services/dndAPI.service";
 
 @Component({

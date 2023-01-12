@@ -16,12 +16,14 @@ specifiers:
   '@angular/platform-browser': ^15.0.0
   '@angular/platform-browser-dynamic': ^15.0.0
   '@angular/router': ^15.0.0
+  '@capacitor/android': ^4.6.1
   '@capacitor/app': 4.1.1
   '@capacitor/cli': 4.6.1
   '@capacitor/core': 4.6.1
   '@capacitor/haptics': 4.1.0
   '@capacitor/keyboard': 4.1.0
   '@capacitor/preferences': ^4.0.2
+  '@capacitor/share': ^4.1.0
   '@capacitor/status-bar': 4.1.1
   '@ionic/angular': ^6.1.9
   '@ionic/angular-toolkit': ^6.0.0
@@ -55,11 +57,13 @@ dependencies:
   '@angular/platform-browser': 15.0.4_wcjhsjedbutghxn65tv34lliyq
   '@angular/platform-browser-dynamic': 15.0.4_hnn6v3m7xpfwy5wugozvutqsyi
   '@angular/router': 15.0.4_6qoe6dvkj2mvffppuvjrhovg7y
+  '@capacitor/android': 4.6.1_@capacitor+core@4.6.1
   '@capacitor/app': 4.1.1_@capacitor+core@4.6.1
   '@capacitor/core': 4.6.1
   '@capacitor/haptics': 4.1.0_@capacitor+core@4.6.1
   '@capacitor/keyboard': 4.1.0_@capacitor+core@4.6.1
   '@capacitor/preferences': 4.0.2_@capacitor+core@4.6.1
+  '@capacitor/share': 4.1.0_@capacitor+core@4.6.1
   '@capacitor/status-bar': 4.1.1_@capacitor+core@4.6.1
   '@ionic/angular': 6.4.1_yg4j7z3w4ho6o42qnye36negey
   ionicons: 6.0.4
@@ -1779,6 +1783,14 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
+  /@capacitor/android/4.6.1_@capacitor+core@4.6.1:
+    resolution: {integrity: sha512-Hnh1tmUr1SP67U6D6ry5I5BEBSN/1nkBAIjQIqf5tF82WNxKbpbC6GfkHE4hMJZinRTrCf36LkrdP8srh7SxoA==}
+    peerDependencies:
+      '@capacitor/core': ^4.6.0
+    dependencies:
+      '@capacitor/core': 4.6.1
+    dev: false
+
   /@capacitor/app/4.1.1_@capacitor+core@4.6.1:
     resolution: {integrity: sha512-SJcJA1rhFQyeH6eLfUEbdKkHzAwzahJNVPNXmU88fdmXpMgM2dJGzZj1vrm6e21aQq+Z4aBVLJ2RCdj92zD7wg==}
     peerDependencies:
@@ -1837,6 +1849,14 @@ packages:
 
   /@capacitor/preferences/4.0.2_@capacitor+core@4.6.1:
     resolution: {integrity: sha512-HgcRkMdVHSIV3TeQLZFmCaCeMWQ25wLyZZ7dA2f8Rw81Q1Nroxsi7HxTEGNqrWKSN9PNKBJD8vChr6eB2GNtZg==}
+    peerDependencies:
+      '@capacitor/core': ^4.0.0
+    dependencies:
+      '@capacitor/core': 4.6.1
+    dev: false
+
+  /@capacitor/share/4.1.0_@capacitor+core@4.6.1:
+    resolution: {integrity: sha512-Gh/cgy7Ee+9fkhw+Q4+9s2S4HiC34/eLoaohqRg1ahtpqvTQ3qdInoEJ23FdILq5cLj2ZPpx2VuEXjpLKX1Z5A==}
     peerDependencies:
       '@capacitor/core': ^4.0.0
     dependencies:

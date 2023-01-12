@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import { Share } from '@capacitor/share';
 import {DndAPIService} from "../../../services/dndAPI.service";
 
 @Component({
@@ -16,6 +17,14 @@ export class RacePage implements OnInit {
     this.api.getRaceDetails(index).subscribe(details=>{
     this.racedetails = details;
   })
+  }
+  async Share(){
+    await Share.share({
+      title: this.racedetails.name,
+      text: this.racedetails.speed + '\n' +
+        this.racedetails.size,
+      url: '/race/'+ this.racedetails.index
+    })
   }
 
 }
