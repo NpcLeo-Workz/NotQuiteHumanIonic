@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title *ngIf="index; else new">Edit: {{this.index}}</ion-title>
+    <ng-template #new>
+      <ion-title>New Race</ion-title>
+    </ng-template>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="races"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" scroll-y="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Edit Race</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item >
+        <ion-label position="floating">Name</ion-label>
+        <ion-input type="text" class="ion-margin-top" [(ngModel)]="this.race.name"></ion-input>
+      </ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">Size</ion-label>
+              <ion-input type="text" class="ion-margin-top" [(ngModel)]="this.race.size"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">speed</ion-label>
+              <ion-input type="number" class="ion-margin-top" [(ngModel)]="this.race.speed"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-item-divider class="ion-margin-top">
+        <ion-label>
+        AbilityScore Bonuses
+        </ion-label>
+      </ion-item-divider>
+      <ion-grid>
+        <ion-row *ngFor="let score of this.race.ability_bonuses">
+          <ion-col class="ion-padding-end">
+            <ion-item>
+              <ion-label position="floating">ability score name</ion-label>
+              <ion-input type="text" class="ion-margin-top" [(ngModel)]="score.ability_score.index"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">bonus</ion-label>
+              <ion-input type="number" class="ion-margin-top" [(ngModel)]="score.bonus"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-item-divider class="ion-margin-top">
+        <ion-label>
+          Starting Proficiencies
+        </ion-label>
+      </ion-item-divider>
+      <ion-grid>
+        <ion-row *ngFor="let prof of this.race.starting_proficiencies">
+          <ion-col class="ion-padding-end">
+            <ion-item>
+              <ion-label position="floating">proficiency name</ion-label>
+              <ion-input type="text" class="ion-margin-top" [(ngModel)]="prof.name"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-item-divider class="ion-margin-top">
+        <ion-label>
+          Languages
+        </ion-label>
+      </ion-item-divider>
+      <ion-grid>
+        <ion-row *ngFor="let lan of this.race.languages">
+          <ion-col class="ion-padding-end">
+            <ion-item>
+              <ion-label position="floating">language name</ion-label>
+              <ion-input type="text" class="ion-margin-top" [(ngModel)]="lan.name"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-item>
+        <ion-label position="floating">language description</ion-label>
+        <ion-input type="text" class="ion-margin-top" [(ngModel)]="this.race.language_desc"></ion-input>
+      </ion-item>
+      <ion-item-divider class="ion-margin-top">
+        <ion-label>
+          Traits
+        </ion-label>
+      </ion-item-divider>
+      <ion-grid>
+        <ion-row *ngFor="let trait of this.race.traits">
+          <ion-col class="ion-padding-end">
+            <ion-item>
+              <ion-label position="floating">trait name</ion-label>
+              <ion-input type="text" class="ion-margin-top" [(ngModel)]="trait.name"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-tab-bar >
+        <ion-tab-button (click)="CreateUpdateRace()">
+          <ion-icon name="checkmark-outline"></ion-icon>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>
+

@@ -11,7 +11,11 @@ const routes: Routes = [
   {
     path: 'race',
     loadChildren: () => import('./race/race.module').then( m => m.RacePageModule)
+  },  {
+    path: 'create-updaterace',
+    loadChildren: () => import('./create-updaterace/create-updaterace.module').then( m => m.CreateUpdateracePageModule)
   }
+
 ];
 
 @NgModule({

@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>RaceDetails</ion-title>
     <ion-buttons slot="end">
-      <ion-back-button defaultHref="home"></ion-back-button>
+      <ion-back-button defaultHref="races"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -80,9 +80,17 @@
       </ion-card-content>
     </ion-card>
   </div>
-  <ion-fab horizontal="end" vertical="bottom" slot="fixed" >
-    <ion-fab-button size="small">
-      <ion-icon name="share-social-outline" (click)="Share()"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button [routerLink]="['create-updaterace']">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button (click)="RemoveRace()" routerLink="/races">
+        <ion-icon name="trash-outline"  ></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button (click)="Share()">
+        <ion-icon name="share-social-outline" ></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
 </ion-content>

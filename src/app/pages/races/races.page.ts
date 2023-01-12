@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Share } from '@capacitor/share';
 import {DndAPIService} from "../../services/dndAPI.service";
+import {RaceService} from "../../services/race.service";
 
 @Component({
   selector: 'app-races',
@@ -10,7 +11,8 @@ import {DndAPIService} from "../../services/dndAPI.service";
 export class RacesPage implements OnInit {
   races : any;
   searchactive = false;
-  constructor(public api: DndAPIService) { }
+  Userrace = false;
+  constructor(public api: DndAPIService, public raceservice: RaceService) { }
 
   ngOnInit() {
   this.races = this.api.getRaces()

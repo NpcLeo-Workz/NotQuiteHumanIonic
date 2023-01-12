@@ -24,6 +24,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/races/race/race.module').then( m => m.RacePageModule)
   },
   {
+    path: 'races/:index/create-updaterace',
+    loadChildren: () => import('./pages/races/create-updaterace/create-updaterace.module')
+      .then( m => m.CreateUpdateracePageModule)
+  },
+  {
     path: 'languages',
     loadChildren: () => import('./pages/languages/languages.module').then( m => m.LanguagesPageModule)
   },
