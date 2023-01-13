@@ -10,7 +10,26 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" >
-  <ion-searchbar *ngIf="searchactive"></ion-searchbar>
+
+    <form #Form = "ngForm" *ngIf="this.importactive">
+
+
+          <ion-item >
+            <ion-input [(ngModel)]="importrace" placeholder="import string here" required="true" name="importrace"></ion-input>
+            <ion-button slot="end" type="submit" [disabled]="!Form.valid" (click)="importRace()">
+              <ion-icon name="checkmark-outline"></ion-icon>
+            </ion-button>
+          </ion-item>
+
+
+
+
+
+
+    </form>
+
+
+
   <ion-list>
     <ion-item *ngFor="let race of (races | async)" [routerLink]="race.index">
       <ion-label>{{race.name}} </ion-label>
@@ -29,6 +48,9 @@
     <ion-fab-list side="top">
       <ion-fab-button routerLink="create-updaterace">
         <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button (click)="importRaceActive()">
+        <ion-icon name="download-outline"></ion-icon>
       </ion-fab-button>
       <!--<ion-fab-button (click)="SearchbarActive()">
         <ion-icon name="search-outline"></ion-icon>

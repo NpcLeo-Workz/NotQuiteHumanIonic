@@ -10,6 +10,7 @@ import {LanguageService} from "../../../services/language.service";
 export class LanguagePage implements OnInit {
   landetails: any;
   index: any;
+  userlanguage = false;
   constructor(private route: ActivatedRoute, private api:DndAPIService, private lanservice: LanguageService) { }
 
   ngOnInit() {
@@ -18,6 +19,7 @@ export class LanguagePage implements OnInit {
     console.log((this.index))
     if(this.lanservice.getLanguageDetails(this.index)){
       this.landetails = this.lanservice.getLanguageDetails(this.index)
+      this.userlanguage = true
     }else{
       this.api.getLanguageDetails(this.index).subscribe(details=>{
         this.landetails = details;

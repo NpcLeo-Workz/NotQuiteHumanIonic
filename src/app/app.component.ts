@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {Preferences} from '@capacitor/preferences';
-
+import {LoadingController, Platform} from "@ionic/angular";
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -8,9 +8,9 @@ import {Preferences} from '@capacitor/preferences';
 })
 export class AppComponent {
   constructor() {
-
-   this.initializeTheme().then()
+    this.initializeTheme().then()
   }
+
   onToggleDarkMode = async ({event}: { event: any }) =>{
     let theme
     if(event.detail.checked){
@@ -31,7 +31,8 @@ export class AppComponent {
     document.body.setAttribute('color-theme', theme.value? theme.value: "dark")
     const themetoggle = document.getElementById('themetoggle')
     if(themetoggle != null){
-      if(theme.value != 'dark'){
+
+      if(theme.value != 'dark' && theme.value){
         themetoggle.setAttribute('checked', 'false');
       } else{
         themetoggle.setAttribute('checked', 'true');

@@ -39,10 +39,10 @@
   </div>
   <ion-tabs>
     <ion-tab-bar slot="bottom">
-      <ion-tab-button [routerLink]="['create-updatelanguage']">
+      <ion-tab-button *ngIf="userlanguage" [routerLink]="['create-updatelanguage']">
         <ion-icon name="create-outline"></ion-icon>
       </ion-tab-button>
-      <ion-tab-button (click)="RemoveLan()" routerLink="/languages">
+      <ion-tab-button *ngIf="userlanguage" (click)="RemoveLan()" routerLink="/languages">
         <ion-icon name="trash-outline"  ></ion-icon>
       </ion-tab-button>
     </ion-tab-bar>

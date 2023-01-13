@@ -32,8 +32,7 @@ export class RacePage implements OnInit {
   async Share(){
     await Share.share({
       title: this.racedetails.name,
-      text: this.racedetails.speed + '\n' +
-        this.racedetails.size
+      text: JSON.stringify(this.racedetails)
     })
   }
 

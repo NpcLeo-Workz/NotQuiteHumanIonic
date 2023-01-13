@@ -82,10 +82,10 @@
   </div>
   <ion-tabs>
     <ion-tab-bar slot="bottom">
-      <ion-tab-button [routerLink]="['create-updaterace']">
+      <ion-tab-button *ngIf="userrace" [routerLink]="['create-updaterace']">
         <ion-icon name="create-outline"></ion-icon>
       </ion-tab-button>
-      <ion-tab-button (click)="RemoveRace()" routerLink="/races">
+      <ion-tab-button *ngIf="userrace" (click)="RemoveRace()" routerLink="/races">
         <ion-icon name="trash-outline"  ></ion-icon>
       </ion-tab-button>
       <ion-tab-button (click)="Share()">

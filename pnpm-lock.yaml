@@ -21,6 +21,7 @@ specifiers:
   '@capacitor/assets': ^2.0.4
   '@capacitor/cli': 4.6.1
   '@capacitor/core': 4.6.1
+  '@capacitor/device': ^4.1.0
   '@capacitor/haptics': 4.1.0
   '@capacitor/keyboard': 4.1.0
   '@capacitor/preferences': ^4.0.2
@@ -32,6 +33,7 @@ specifiers:
   '@types/node': ^12.11.1
   '@typescript-eslint/eslint-plugin': 5.3.0
   '@typescript-eslint/parser': 5.3.0
+  capacitor-data-storage-sqlite: ^4.0.1
   eslint: ^7.6.0
   eslint-plugin-import: 2.22.1
   eslint-plugin-jsdoc: 30.7.6
@@ -45,6 +47,7 @@ specifiers:
   karma-coverage-istanbul-reporter: ~3.0.2
   karma-jasmine: ~5.1.0
   karma-jasmine-html-reporter: ~2.0.0
+  localforage: ^1.10.0
   rxjs: ~7.5.0
   ts-node: ~8.3.0
   tslib: ^2.3.0
@@ -62,13 +65,16 @@ dependencies:
   '@capacitor/app': 4.1.1_@capacitor+core@4.6.1
   '@capacitor/assets': 2.0.4_sr2pz56bp3b65zhkgg3zdvf4ny
   '@capacitor/core': 4.6.1
+  '@capacitor/device': 4.1.0_@capacitor+core@4.6.1
   '@capacitor/haptics': 4.1.0_@capacitor+core@4.6.1
   '@capacitor/keyboard': 4.1.0_@capacitor+core@4.6.1
   '@capacitor/preferences': 4.0.2_@capacitor+core@4.6.1
   '@capacitor/share': 4.1.0_@capacitor+core@4.6.1
   '@capacitor/status-bar': 4.1.1_@capacitor+core@4.6.1
   '@ionic/angular': 6.4.1_yg4j7z3w4ho6o42qnye36negey
+  capacitor-data-storage-sqlite: 4.0.1_clorjlbpweyrgnowlbsv4sp4xy
   ionicons: 6.0.4
+  localforage: 1.10.0
   rxjs: 7.5.7
   tslib: 2.4.1
   zone.js: 0.11.8
@@ -1881,6 +1887,14 @@ packages:
       tslib: 2.4.1
     dev: false
 
+  /@capacitor/device/4.1.0_@capacitor+core@4.6.1:
+    resolution: {integrity: sha512-BlcYb6e6m+vC1SxeyUDIUGfuNXdKEcpFPDCs/kxk2SByFc/BkvXeoy4NjY4qmTderGELofX9bta5Iy9JV7rGUg==}
+    peerDependencies:
+      '@capacitor/core': ^4.0.0
+    dependencies:
+      '@capacitor/core': 4.6.1
+    dev: false
+
   /@capacitor/haptics/4.1.0_@capacitor+core@4.6.1:
     resolution: {integrity: sha512-gAIFy50e1VZPdokRFLkl8Y+yZYB3e4brd5yu9DRShbWbheruwU34TxtG5C1NANvq4mbXd3tMXzBi59Q5JFyTHA==}
     peerDependencies:
@@ -3561,6 +3575,16 @@ packages:
   /caniuse-lite/1.0.30001442:
     resolution: {integrity: sha512-239m03Pqy0hwxYPYR5JwOIxRJfLTWtle9FV8zosfV5pHg+/51uD4nxcUlM8+mWWGfwKtt8lJNHnD3cWw9VZ6ow==}
     dev: true
+
+  /capacitor-data-storage-sqlite/4.0.1_clorjlbpweyrgnowlbsv4sp4xy:
+    resolution: {integrity: sha512-BF+bt6PUJJBZjcToHh8i0kYq3VuaL5iF7J1b7olC2N7o8OzI1hZoOrzu8sXC34Ci2hJHSu7e5CJx0wZc+6VYAA==}
+    peerDependencies:
+      '@capacitor/core': ^4.0.0
+      localforage: ^1.10.0
+    dependencies:
+      '@capacitor/core': 4.6.1
+      localforage: 1.10.0
+    dev: false
 
   /chalk/2.4.2:
     resolution: {integrity: sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==}
@@ -5836,6 +5860,10 @@ packages:
     dev: true
     optional: true
 
+  /immediate/3.0.6:
+    resolution: {integrity: sha512-XXOFtyqDjNDAQxVfYxuF7g9Il/IbWmmlQg2MYKOH8ExIT1qg6xc4zyS3HaEEATgs1btfzxq15ciUiY7gjSXRGQ==}
+    dev: false
+
   /immutable/4.2.2:
     resolution: {integrity: sha512-fTMKDwtbvO5tldky9QZ2fMX7slR0mYpY5nbnFWYp0fOzDhHqhgIw9KoYgxLWsoNTS9ZHGauHj18DTyEw6BK3Og==}
     dev: true
@@ -6551,6 +6579,12 @@ packages:
       webpack-sources: 3.2.3
     dev: true
 
+  /lie/3.1.1:
+    resolution: {integrity: sha512-RiNhHysUjhrDQntfYSfY4MU24coXXdEOgw9WGcKHNeEwffDYbF//u87M1EWaMGzuFoSbqW0C9C6lEEhDOAswfw==}
+    dependencies:
+      immediate: 3.0.6
+    dev: false
+
   /lines-and-columns/1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
 
@@ -6592,6 +6626,12 @@ packages:
     resolution: {integrity: sha512-ZvFw1KWS3GVyYBYb7qkmRM/WwL2TQQBxgCK62rlvm4WpVQ23Nb4tYjApUlfjrEGvOs7KHEsmyUn75OHZrJMWPw==}
     engines: {node: '>= 12.13.0'}
     dev: true
+
+  /localforage/1.10.0:
+    resolution: {integrity: sha512-14/H1aX7hzBBmmh7sGPd+AOMkkIrHM3Z1PAyGgZigA1H1p5O5ANnMyWzvpAETtG68/dC4pC0ncy3+PPGzXZHPg==}
+    dependencies:
+      lie: 3.1.1
+    dev: false
 
   /locate-path/2.0.0:
     resolution: {integrity: sha512-NCI2kiDkyR7VeEKm27Kda/iQHyKJe1Bu0FlTbYp3CqJu+9IFe9bLyAjMxf5ZDDbEg+iMPzB5zYyUTSm8wVTKmA==}
