@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>languages</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let lan of (languages | async)" [routerLink]="lan.index">
+      <ion-label>{{lan.name}} </ion-label>
+      <ion-label slot="end"><ion-icon name="star" class="base"></ion-icon></ion-label>
+    </ion-item>
+    <ion-item *ngFor="let lan of (this.lanService.getAllLanguages())" [routerLink]="lan.index">
+      <ion-label>{{lan.name}} </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed" >
+    <ion-fab-button size="small">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button routerLink="create-updatelanguage">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

@@ -24,3 +24,24 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+*{
+  --main-color: #D0A85C;
+  color: var(--main-color);
+}
+ion-button{
+  --background: transparent;
+}
+ion-toggle{
+  --handle-background-checked: var(--main-color);
+  --handle-background: var(--main-color);
+  --background-checked: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),var(--main-color);
+}
+.centercontent{
+  transform: translateY(15vh);
+}
+.centercontent img{
+  max-height: 50vh;
+}
+
+

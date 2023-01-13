@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>language</ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="landetails">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ landetails.name}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list lines="full">
+          <ion-item>
+            <ion-label>Type: {{landetails.type}}</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>Script: {{landetails.script}}</ion-label>
+          </ion-item>
+          <div *ngIf="landetails.typical_speakers.length">
+            <ion-item-group>
+              <ion-item-divider>
+                <ion-label>
+                  Typical Speakers
+                </ion-label>
+              </ion-item-divider>
+              <ion-item>
+                <ion-label *ngFor="let speaker of landetails.typical_speakers">{{speaker}}</ion-label>
+              </ion-item>
+            </ion-item-group>
+          </div>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+<ion-toolbar slot="bottom">
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button *ngIf="userlanguage" [routerLink]="['create-updatelanguage']">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button *ngIf="userlanguage" (click)="RemoveLan()" routerLink="/languages">
+        <ion-icon name="trash-outline"  ></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-toolbar>

@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>RaceDetails</ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="races"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="racedetails">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ racedetails.name}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list lines="full">
+          <ion-item>
+            <ion-label>Size: {{racedetails.size}}</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>Speed: {{racedetails.speed}}</ion-label>
+          </ion-item>
+          <ion-item-group>
+            <ion-item-divider>
+              <ion-label>
+                AbilityScore Bonuses
+              </ion-label>
+            </ion-item-divider>
+            <ion-item >
+              <ion-label *ngFor="let abbonus of racedetails.ability_bonuses">{{abbonus.ability_score.index}}: {{abbonus.bonus}}</ion-label>
+            </ion-item>
+          </ion-item-group>
+          <div *ngIf="racedetails.starting_proficiencies.length">
+            <ion-item-group>
+              <ion-item-divider>
+                <ion-label>
+                  starting proficiencies
+                </ion-label>
+              </ion-item-divider>
+              <ion-item *ngFor="let prof of racedetails.starting_proficiencies">
+                <ion-label>{{prof.name}}</ion-label>
+              </ion-item>
+            </ion-item-group>
+          </div>
+          <div *ngIf="racedetails.languages.length">
+            <ion-item-group>
+              <ion-item-divider>
+                <ion-label>
+                  Languages
+                </ion-label>
+              </ion-item-divider>
+              <ion-item >
+                <ion-label *ngFor="let lan of racedetails.languages">{{lan.name}}</ion-label>
+              </ion-item>
+              <ion-item-divider>
+                <ion-label>
+                  Language description
+                </ion-label>
+              </ion-item-divider>
+              <ion-item >
+                {{racedetails.language_desc}}
+              </ion-item>
+            </ion-item-group>
+          </div>
+          <div *ngIf="racedetails.traits.length">
+            <ion-item-group>
+              <ion-item-divider>
+                <ion-label>
+                  Traits
+                </ion-label>
+              </ion-item-divider>
+              <ion-item *ngFor="let trait of racedetails.traits">
+                <ion-label>{{trait.name}}</ion-label>
+              </ion-item>
+            </ion-item-group>
+          </div>
+
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+<ion-toolbar slot="bottom">
+  <ion-tabs>
+    <ion-tab-bar>
+      <ion-tab-button *ngIf="userrace" [routerLink]="['create-updaterace']">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button *ngIf="userrace" (click)="RemoveRace()" routerLink="/races">
+        <ion-icon name="trash-outline"  ></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button (click)="Share()">
+        <ion-icon name="share-social-outline" ></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-toolbar>

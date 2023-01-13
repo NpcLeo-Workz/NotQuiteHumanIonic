@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title *ngIf="index; else new">Edit: {{this.index}}</ion-title>
+    <ng-template #new>
+      <ion-title>New Race</ion-title>
+    </ng-template>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="races"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" scroll-y="true">
+  <form #Form ="ngForm">
+  <ion-card>
+    <ion-card-content>
+      <ion-item >
+        <ion-label position="floating">Name</ion-label>
+        <ion-input required="true" type="text" class="ion-margin-top" [(ngModel)]="race.name" name="name" ></ion-input>
+      </ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">Size</ion-label>
+              <ion-input required="true" type="text" class="ion-margin-top" [(ngModel)]="race.size" name="size"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">speed</ion-label>
+              <ion-input required="true" type="number" class="ion-margin-top" [(ngModel)]="race.speed" name="speed"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-item-divider class="ion-margin-top">
+        <ion-label>
+        AbilityScore Bonuses
+        </ion-label>
+      </ion-item-divider>
+      <ion-grid>
+        <ion-row *ngFor="let score of this.race.ability_bonuses">
+          <ion-col class="ion-padding-end">
+            <ion-item>
+              <ion-label position="floating">ability score name</ion-label>
+              <ion-input required="true" type="text" class="ion-margin-top" [(ngModel)]="score.ability_score.index" name="ability_score"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">bonus</ion-label>
+              <ion-input required="true" type="number" class="ion-margin-top" [(ngModel)]="score.bonus" name="bonus"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-item-divider class="ion-margin-top">
+        <ion-label>
+          Starting Proficiencies
+        </ion-label>
+      </ion-item-divider>
+      <ion-grid>
+        <ion-row *ngFor="let prof of this.race.starting_proficiencies">
+          <ion-col class="ion-padding-end">
+            <ion-item>
+              <ion-label position="floating">proficiency name</ion-label>
+              <ion-input required="true" type="text" class="ion-margin-top" [(ngModel)]="prof.name" name="proficiency"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-item-divider class="ion-margin-top">
+        <ion-label>
+          Languages
+        </ion-label>
+      </ion-item-divider>
+      <ion-grid>
+        <ion-row *ngFor="let lan of this.race.languages">
+          <ion-col class="ion-padding-end">
+            <ion-item>
+              <ion-label position="floating">language name</ion-label>
+              <ion-input required="true" type="text" class="ion-margin-top" [(ngModel)]="lan.name" name="language"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-item>
+        <ion-label position="floating">language description</ion-label>
+        <ion-input required="true" type="text" class="ion-margin-top" [(ngModel)]="this.race.language_desc" name="languagedescription"></ion-input>
+      </ion-item>
+      <ion-item-divider class="ion-margin-top">
+        <ion-label>
+          Traits
+        </ion-label>
+      </ion-item-divider>
+      <ion-grid>
+        <ion-row *ngFor="let trait of this.race.traits">
+          <ion-col class="ion-padding-end">
+            <ion-item>
+              <ion-label position="floating">trait name</ion-label>
+              <ion-input required="true" type="text" class="ion-margin-top" [(ngModel)]="trait.name" name="trait"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+        <ion-button type="submit" [disabled]="!Form.valid" (click)="CreateUpdateRace()">
+          <ion-icon name="checkmark-outline"></ion-icon>
+        </ion-button>
+
+    </ion-card-content>
+  </ion-card>
+  </form>
+
+</ion-content>
+

@@ -1,0 +1,19 @@
+ion-fab-button {
+  --background: var(--main-color);
+  --background-activated: #87d361;
+  --background-hover: #a3e681;
+  --border-radius: 15px;
+
+  --color: #0d0d0d;
+
+}
+ion-icon{
+  color: #0d0d0d;
+
+}
+.base{
+  color: var(--main-color);
+}
+ion-item-option{
+  --background: var(--main-color);
+}

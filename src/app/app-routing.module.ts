@@ -11,6 +11,54 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'about',
+    loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
+  },
+  {
+    path: 'races',
+    loadChildren: () => import('./pages/races/races.module').then( m => m.RacesPageModule)
+  },
+  {
+    path: 'races/:index',
+    loadChildren: () => import('./pages/races/race/race.module').then( m => m.RacePageModule)
+  },
+  {
+    path: 'races/:index/create-updaterace',
+    loadChildren: () => import('./pages/races/create-updaterace/create-updaterace.module')
+      .then( m => m.CreateUpdateracePageModule)
+  },
+  {
+    path: 'create-updaterace',
+    loadChildren: () => import('./pages/races/create-updaterace/create-updaterace.module')
+      .then( m => m.CreateUpdateracePageModule)
+  },
+  {
+    path: 'languages',
+    loadChildren: () => import('./pages/languages/languages.module').then( m => m.LanguagesPageModule)
+  },
+  {
+    path: 'languages/:index',
+    loadChildren: () => import('./pages/languages/language/language.module').then( m => m.LanguagePageModule)
+  },
+  {
+    path: 'languages/:index/create-updatelanguage',
+    loadChildren: () => import('./pages/languages/create-updatelanguage/create-updatelanguage.module')
+      .then( m => m.CreateUpdatelanguagePageModule)
+  },
+  {
+    path: 'create-updatelanguage',
+    loadChildren: () => import('./pages/languages/create-updatelanguage/create-updatelanguage.module')
+      .then( m => m.CreateUpdatelanguagePageModule)
+  },
+  {
+    path: 'traits',
+    loadChildren: () => import('./pages/traits/traits.module').then( m => m.TraitsPageModule)
+  },
+  {
+    path: 'traits/:index',
+    loadChildren: () => import('./pages/traits/trait/trait.module').then( m => m.TraitPageModule)
+  }
 ];
 
 @NgModule({
