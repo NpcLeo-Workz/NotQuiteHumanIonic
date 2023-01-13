@@ -80,8 +80,10 @@
       </ion-card-content>
     </ion-card>
   </div>
+</ion-content>
+<ion-toolbar slot="bottom">
   <ion-tabs>
-    <ion-tab-bar slot="bottom">
+    <ion-tab-bar>
       <ion-tab-button *ngIf="userrace" [routerLink]="['create-updaterace']">
         <ion-icon name="create-outline"></ion-icon>
       </ion-tab-button>
@@ -93,4 +95,4 @@
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
-</ion-content>
+</ion-toolbar>
